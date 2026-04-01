@@ -1,53 +1,116 @@
 #include<iostream>
 using namespace std;
 
+class Food
+{
+protected:
+    int price;
+
+public:
+    virtual void setPrice() = 0;
+    int getPrice()
+    {
+        return price;
+    }
+};
+
+class Pizza : public Food
+{
+public:
+    void setPrice()
+    {
+        price = 200;
+    }
+};
+
+class Burger : public Food
+{
+public:
+    void setPrice()
+    {
+        price = 100;
+    }
+};
+
+class Pasta : public Food
+{
+public:
+    void setPrice()
+    {
+        price = 150;
+    }
+};
+
+class Sandwich : public Food
+{
+public:
+    void setPrice()
+    {
+        price = 120;
+    }
+};
+
+class Bill
+{
+private:
+    int total;
+
+public:
+    Bill()
+    {
+        total = 0;
+    }
+
+    void addItem(Food *f, int qty)
+    {
+        total += f->getPrice() * qty;
+    }
+
+    void showTotal()
+    {
+        cout << "Total Bill : " << total;
+    }
+};
+
 int main()
 {
-    int choice=0,qty,total=0;
-    
-    while(choice!=5)
+    int choice = 0, qty;
+    Bill b;
+
+    while(choice != 5)
     {
-        cout<<"\n  Menu\n";
+        cout<<"\n Menu\n";
         cout<<"1.Pizza - 200\n2.Burger - 100\n3.Pasta - 150\n4.Sandwich - 120\n5.Exit\n";
-       cout<<"Enter your Choice: ";
-       cin>>choice;
-       
-       if(choice==1)
-       {
-           cout<<"Enter quentity:";
-           cin>>qty;
-           total+=200*qty;
-       }
-       else if(choice==2)
-       {
-           cout<<"Enter quentity:";
-           cin>>qty;
-           total+=100*qty;
-       }
-       else if(choice==3)
-       {
-           cout<<"Enter quentity:";
-           cin>>qty;
-           total+=150*qty;
-       }
-       else if(choice==4)
-       {
-           cout<<"Enter quentity:";
-           cin>>qty;
-           total+=120*qty;
-       }
-       else if(choice==5)
-       {
-           break;
-       }
-       else
-       {
-           cout<<"Invalid Choice";
-       }
+        cout<<"Enter your Choice: ";
+        cin>>choice;
+
+        Food *f;
+
+        if(choice == 1)
+            f = new Pizza();
+        else if(choice == 2)
+            f = new Burger();
+        else if(choice == 3)
+            f = new Pasta();
+        else if(choice == 4)
+            f = new Sandwich();
+        else if(choice == 5)
+            break;
+        else
+        {
+            cout<<"Invalid Choice\n";
+            continue;
+        }
+
+        f->setPrice();
+
+        cout<<"Enter quantity: ";
+        cin>>qty;
+
+        b.addItem(f, qty);
     }
-    
-    cout<<"Total Bill : "<<total;
-    
+
+    b.showTotal();
+
     return 0;
-    
 }
