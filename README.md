@@ -4,23 +4,22 @@ This project is a simple restaurant billing system developed using C++. It allow
 
 2. Objective of the Project
 
-   -> To understand the use of loops (while loop) in C++.
-   -> To practice conditional statements (if-else).
-   -> To implement a basic menu-driven program.
-   -> To calculate the total cost dynamically based on user input.
-   -> To simulate a real-life restaurant ordering system.
+   -> The objective of this project is to develop a Restaurant Billing System using C++ and Object-Oriented Programming concepts. The system allows users to select food items, enter quantity, and automatically calculate the total bill.
+   
+   -> It aims to demonstrate the use of encapsulation, inheritance, and polymorphism for creating a structured, reusable, and easy-to-maintain program that simulates a real-world billing
 
-3. System Design
+4. System Design
    
 Input:-
 -> User choice (1–5).
 -> Quantity of selected food item.
 
 Process:-
--> Display menu repeatedly using a while loop.
--> Check user choice using if-else.
+-> Create object of selected food item.
+-> Set price using polymorphism.
 -> Multiply quantity with item price.
 -> Add result to total bill.
+-> Repeat until user exits.
 
 Output:-
 Display total bill after user exits.
@@ -33,6 +32,7 @@ Choice  Item      Price
   4     Sandwich  120
   5     Exit       -
 
-5. Conclusion
+4. Conclusion
 
-This project demonstrates a basic implementation of a menu-driven application using C++. It helps in understanding how loops and conditions work together to create interactive programs. Although simple, it forms the foundation for more advanced systems like restaurant management software, where features like billing, ordering, and inventory can be expanded further.
+   -> This project successfully demonstrates a Restaurant Billing System using Object-Oriented Programming in C++. It allows users to select items, enter quantity, and generate the total bill efficiently.
+   -> By using encapsulation, inheritance, and polymorphism, the system becomes modular, reusable, and easy to maintain. Overall, the project provides a clear understanding of how OOP concepts can be applied to solve real-world problems.
